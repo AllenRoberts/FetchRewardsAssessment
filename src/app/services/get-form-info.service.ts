@@ -14,4 +14,9 @@ export class GetFormInfoService {
   getInfo(): Observable<any> {
     return this.http.get<any>(this.apiUrl);
   }
+
+  postForm(): Observable<any> {
+    console.log("posting...")
+    return this.http.post<any>(this.apiUrl, "")
+  }
 }
