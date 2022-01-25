@@ -10,9 +10,12 @@ export class GetFormInfoService {
 
   constructor(private http: HttpClient) { }
 
-  //Change from any
+   /**
+   * Gets state and occupation data from API url
+   * @returns {Json}
+   */
   getInfo(): Observable<any> {
-    return this.http.get<any>(this.apiUrl);
+    return this.http.get(this.apiUrl);
   }
 
   postForm(): Observable<any> {

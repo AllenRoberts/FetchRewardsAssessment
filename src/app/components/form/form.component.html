@@ -1,62 +1,61 @@
-    <form>
-        <label htmlFor="formName" class="form-label">
-          Name:
-        </label>
-        <input
-        class="form-control"
-        type="text"
-        />
-      <label htmlFor="formEmail" class="form-label">
-        Email:
-      </label>
-      <br />
-      <input
-        class="form-control"
-        type="email"
-        id="email"
-        name="email"
-      />
-      <br />
-      <label htmlFor="formPassword" class="form-label">
-        Password
-      </label>
-      <br />
-      <input
-        class="form-control"
-        type="password"
-        id="Password"
-        name="Password"
-      />
-      <label for="formRe-Password" class="form-label">
-        Reenter Password
-      </label>
-      <br />
-      <input
-        class="form-control"
-        type="password"
-        id="Re-Password"
-        name="Re-Password"
-      />
-      
-      <br />
-      <label htmlFor="formState" class="form-label">
-          State
-      </label>
-      <select
-        class="form-select"
-        id="formState"
-        name="formState"
-      >
-      </select>
-      <br />
-      <label htmlFor="formOccupation" class="form-label">
-          Occupation
-      </label>
-      <select
-        class="form-select mb-2"
-        id="formOccupation"
-        name="formOccupation"
-      >
-      </select>
-      <button type="button" class="btn btn-primary float-end">Submit Data</button>
-    </form>
+<form class="form" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <h2 class="text-center">Please Enter Your Information</h2>
+    <label for="name" class="form-label"> Name: </label>
+    <input
+      class="form-control"
+      type="text"
+      id="name"
+      name="name"
+      [(ngModel)]="name"
+      required
+    />
+    <label for="email" class="form-label"> Email: </label>
+    <input
+      class="form-control"
+      type="email"
+      id="email"
+      name="email"
+      [(ngModel)]="email"
+      required
+    />
+    <label for="password" class="form-label"> Password </label>
+    <input
+      class="form-control"
+      type="password"
+      id="password"
+      name="password"
+      [(ngModel)]="password"
+      required
+    />
+    <label for="rePassword" class="form-label"> Reenter Password </label>
+    <input
+      class="form-control"
+      type="password"
+      id="rePassword"
+      name="rePassword"
+      [(ngModel)]="rePassword"
+      required
+    />
+    <label htmlFor="fstate" class="form-label"> State </label>
+    <select class="form-select" id="state" name="state" [(ngModel)]="state">
+      <option value="">Select State</option>
+      <option *ngFor="let state of stateList" value="{{ state.abbreviation }}">
+        {{ state.name }}
+      </option>
+    </select>
+    <label htmlFor="occupation" class="form-label"> Occupation </label>
+    <select
+      class="form-select mb-2"
+      id="ocupation"
+      name="occupation"
+      [(ngModel)]="occupation"
+    >
+      <option value="">Select Occupation</option>
+      <option *ngFor="let occupation of occupationList">
+        {{ occupation }}
+      </option>
+    </select>
+    <button type="button" class="btn btn-primary mt-2">Submit Data</button>
+  </div>
+</form>
