@@ -1,6 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { FormData } from '../FormData';
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json',
+  }),
+};
 
 @Injectable({
   providedIn: 'root'
@@ -18,8 +24,11 @@ export class GetFormInfoService {
     return this.http.get(this.apiUrl);
   }
 
-  postForm(): Observable<any> {
-    console.log("posting...")
-    return this.http.post<any>(this.apiUrl, "")
+  /**
+   * Posts form to server
+   * @param form 
+   */
+  postForm(form: FormData): Observable<FormData> {
+    return this.http.post<FormData>(this.apiUrl, form, httpOptions)
   }
 }

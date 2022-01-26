@@ -19,7 +19,7 @@
       [(ngModel)]="email"
       required
     />
-    <label for="password" class="form-label"> Password </label>
+    <label for="password" class="form-label"> Password: </label>
     <input
       class="form-control"
       type="password"
@@ -28,6 +28,10 @@
       [(ngModel)]="password"
       required
     />
+    <small id="emailHelp" class="form-text text-muted"
+      >Password must be 8 characters</small
+    >
+    <br />
     <label for="rePassword" class="form-label"> Reenter Password </label>
     <input
       class="form-control"
@@ -37,22 +41,25 @@
       [(ngModel)]="rePassword"
       required
     />
-    <label htmlFor="fstate" class="form-label"> State </label>
+    <label for="state" class="form-label"> State: </label>
     <select class="form-select" id="state" name="state" [(ngModel)]="state">
       <option value="">Select State</option>
       <option *ngFor="let state of stateList" value="{{ state.abbreviation }}">
         {{ state.name }}
       </option>
     </select>
-    <label htmlFor="occupation" class="form-label"> Occupation </label>
+    <label for="occupation" class="form-label"> Occupation: </label>
     <select
       class="form-select mb-2"
-      id="ocupation"
+      id="occupation"
       name="occupation"
       [(ngModel)]="occupation"
     >
       <option value="">Select Occupation</option>
-      <option *ngFor="let occupation of occupationList">
+      <option
+        *ngFor="let occupation of occupationList"
+        value="{{ occupation }}"
+      >
         {{ occupation }}
       </option>
     </select>
